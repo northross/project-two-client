@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>BuildCabulary</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,23 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <header>
+        <form id="sign-up" class="border">
+            <fieldset>
+              <input class="blackWithWhite" type="text" name="credentials[email]" placeholder="sign_up@email.com">
+              <input class="whiteWithBlack" type="password" name="credentials[password]" placeholder="create password">
+              <input class="blackWithWhite" type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+              <input type="submit" value="Sign-Up!">
+            </fieldset>
+        </form>
+        <form id="sign-in" class="border">
+            <fieldset>
+              <input class="blackWithWhite" type="text" name="credentials[email]" placeholder="sign_in@email.com">
+              <input class="whiteWithBlack" type="password" name="credentials[password]" placeholder="enter password">
+              <input type="submit" value="Sign-In!">
+            </fieldset>
+        </form>
+      </header>
       <h1>Browser Template</h1>
     </body>
 </html>
