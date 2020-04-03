@@ -12,6 +12,7 @@ const signUpSuccess = function (data) {
   $('#note').addClass('Sign-Up: Success!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('SU works')
 }
 
 const signUpFailure = function (error) {
@@ -20,6 +21,7 @@ const signUpFailure = function (error) {
   $('#note').addClass('Sign-Up: incomplete!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('SU is broken')
 }
 
 const signInSuccess = function (data) {
@@ -29,13 +31,14 @@ const signInSuccess = function (data) {
   $('#note').addClass('Sign-In: success!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('SI works')
   // store.user = data.user
-  $('.grid').show()
-  $('#change-password').show()
-  $('#sign-out').show()
-  $('#new-game').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
+  // $('.grid').show()
+  // $('#change-password').show()
+  // $('#sign-out').show()
+  // $('#new-game').show()
+  // $('#sign-in').hide()
+  // $('#sign-up').hide()
   // $('#get-games').show()
 }
 
@@ -45,7 +48,7 @@ const signInFailure = function (error) {
   $('#note').addClass('Sign-In: Unsuccessful!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-
+  console.log('SI is broken')
 }
 
 const changePasswordSuccess = function (data) {
@@ -54,6 +57,7 @@ const changePasswordSuccess = function (data) {
   $('#note').addClass('Password Change: Successful!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('CP works')
 }
 
 const changePasswordFailure = function (error) {
@@ -62,6 +66,7 @@ const changePasswordFailure = function (error) {
   $('#note').addClass('Password Change: Unsuccessful!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('CP is broken')
 }
 
 
@@ -71,6 +76,7 @@ const signOutSuccess = function (data) {
   $('#note').addClass('Sign-Out: Successful!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('SO works')
   // $('#change-password').hide()
   // $('#sign-out').hide()
   // $('.grid').hide()
@@ -85,4 +91,5 @@ const signOutFailure = function (error) {
   $('#note').addClass('Sign-Out: Unsuccessful!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  console.log('SO is broken')
 }
