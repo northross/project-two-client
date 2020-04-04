@@ -7,10 +7,23 @@ const authEvents = require('./auth/events.js')
 // require('./example')
 
 $(() => {
+  // user events
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
+
+  // user buttons display
+  $('#sign-up').show()
+  $('#sign-in').show()
   $('#change-password').hide()
   $('#sign-out').hide()
+
+  // vocab events
+  $('#create-word').on('submit', authEvents.onCreateWord)
+  $('#show-all').on('submit', authEvents.onShowAll)
+
+  // vocab buttons display
+  $('#create-word').hide()
+  $('#show-all').hide()
 })

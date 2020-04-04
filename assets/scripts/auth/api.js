@@ -43,9 +43,33 @@ const signOut = function () {
   })
 }
 
+const createWord = function (vocabData) {
+  return $.ajax({
+    url: config.apiUrl + '/vocabs',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: vocabData
+  })
+  console.log(vocabData)
+}
+
+const showAll = function () {
+  return $.ajax({
+    url: config.apiUrl + '/vocabs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  createWord,
+  showAll
 }

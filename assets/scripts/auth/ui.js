@@ -3,98 +3,116 @@
 const store = require('../store')
 const events = require('./events')
 
+// User Button Function UI's
+// Success function
+// followed by
+// Failure Function
 
 const signUpSuccess = function (data) {
   $('#note').show()
-  $('#note').text('You have Signed-Up Successfully!')
+  $('#note').text('Welcome to a Very Exclusive Club for Learners!')
   $('#note').text("Please 'Sign-In' to Play!")
-  $('#note').removeClass()
-  $('#note').addClass('Sign-Up: Success!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
   console.log('SU works')
+  $('form input[type="text"]').val('')
+  $('form input[type="password"]').val('')
 }
 
 const signUpFailure = function (error) {
   $('#note').text('Sign-Up was Unsuccessful')
-  $('#note').removeClass()
-  $('#note').addClass('Sign-Up: incomplete!')
+  console.log('SU is broken')
   // $('form input[type="text"]').val('')
   // $('form input[type="password"]').val('')
-  console.log('SU is broken')
 }
 
 const signInSuccess = function (data) {
   $('#note').show()
-  $('#note').text('You have Signed-In Successfully!')
-  $('#note').removeClass()
-  $('#note').addClass('Sign-In: success!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
+  $('#note').text("Welcome! Let's Build Some Vocabulary Word Tables!")
+
+  $('#change-password').show()
+  $('#create-word').show()
+  $('#sign-out').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#show-all').show()
   console.log('SI works')
   console.log(store.user)
   store.user = data.user
-  // $('.grid').show()
-  $('#change-password').show()
-  $('#sign-out').show()
-  // $('#new-game').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
-  // $('#get-games').show()
+  $('form input[type="text"]').val('')
+  $('form input[type="password"]').val('')
 }
 
 const signInFailure = function (error) {
-  $('#note').text('Sign-In was Unsuccessful!')
+  $('#note').text("!")
   $('#note').removeClass()
   $('#note').addClass('Sign-In: Unsuccessful!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
   console.log('SI is broken')
+  $('form input[type="text"]').val('')
+  $('form input[type="password"]').val('')
 }
 
 const changePasswordSuccess = function (data) {
   $('#note').text('Password Change was Successful!')
-  $('#note').removeClass()
-  $('#note').addClass('Password Change: Successful!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
   console.log('CP works')
+  $('form input[type="text"]').val('')
+  $('form input[type="password"]').val('')
 }
 
 const changePasswordFailure = function (error) {
   $('#note').text('Password Change was Unsuccessful!')
-  $('#note').removeClass()
-  $('#note').addClass('Password Change: Unsuccessful!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
   console.log('CP is broken')
+  $('form input[type="text"]').val('')
+  $('form input[type="password"]').val('')
 }
 
 
 const signOutSuccess = function (data) {
-  $('#note').text('You have Signed-Out Successfully!')
-  $('#note').removeClass()
-  $('#note').addClass('Sign-Out: Successful!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
-  console.log('SO works')
+  $('#note').text('Thank you for learning today!')
   $('#change-password').hide()
-  // $('#sign-out').hide()
+  console.log('SO works')
   // $('.grid').hide()
-  // $('#new-game').hide()
-  // $('#sign-in').show()
-  // $('#sign-up').show()
+  $('#sign-in').show()
+  $('#sign-up').show()
+
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#create-word').hide()
 }
 
 const signOutFailure = function (error) {
-  $('#note').text('Signed-out was Unsuccessful!')
-  $('#note').removeClass()
-  $('#note').addClass('Sign-Out: Unsuccessful!')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
+  $('#note').text('Woops, there was an error signing-out!')
   console.log('SO is broken')
 }
 
+// Vocab Button Function UI
+  // Success function
+  // followed by
+  // Failure Function
+
+const createWordSuccess = function (responseFromApi) {
+  $('#note').text('You have created a new word!')
+  $('#note').removeClass()
+  $('#note').addClass('A new word has been created!')
+  // store.user = data.user.vocab
+  console.log(responseFromApi)
+  // get rid of example box
+}
+
+const createWordFailure = function () {
+  $('#note').text('You have created a new word!')
+  console.log('Create word success')
+  // get rid of example box
+}
+
+const showAllSuccess = function (responseFromApi) {
+  $('#note').text('Showing all of you vocabulary words!')
+  $('#show-all').hide()
+  console.log(responseFromApi)
+}
+
+const showAllFailure = function () {
+  $('#note').text('Not showing all of you vocabulary words!')
+  console.log('Show words failure')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -103,5 +121,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  createWordSuccess,
+  createWordFailure,
+  showAllSuccess,
+  showAllFailure
 }
