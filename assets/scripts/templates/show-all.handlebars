@@ -1,6 +1,6 @@
 {{#each vocabs as |vocab|}}
 {{log vocab}}
-<section data-id="{{vocab.data}}">
+<section data-id="{{vocab.id}}">
   <h3>{{limit vocab.word 10}}</h3>
   <p>
     {{#if vocab.sounds_like}}
@@ -24,3 +24,4 @@
       Not yet defined.
     {{/if}}
   </p>
+{{/each}}

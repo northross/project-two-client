@@ -63,11 +63,35 @@ const onShowAll = function (event) {
     .catch(ui.showAllFailure)
 }
 
+const onShowOne = function (event) {
+  event.preventDefault()
+  console.log('onShowOne function')
+  api.showOne()
+    .then(ui.showOneSuccess)
+    .catch(ui.showOneFailure)
+}
+
+const onUpdateWord = function (event) {
+  event.preventDefault()
+  console.log('Updateword function')
+  const data = getFormFields(event.target)
+  api.UpdateWord()
+    .then(ui.updateWordSuccess)
+    .catch(ui.UpdateWordFailure)
+}
+
+const addHandlers = () => {
+  $('#show-all').on('click', onShowAll)
+}
+
 module.exports = {
   onChangePassword,
   onSignOut,
   onSignIn,
   onSignUp,
   onCreateWord,
-  onShowAll
+  onShowAll,
+  onShowOne,
+  onUpdateWord,
+  addHandlers
 }

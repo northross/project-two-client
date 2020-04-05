@@ -65,11 +65,21 @@ const showAll = function () {
   })
 }
 
+const showOne = function () {
+  return $.ajax({
+    url: config.apiUrl + '/vocabs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   createWord,
-  showAll
+  showAll,
+  showOne
 }

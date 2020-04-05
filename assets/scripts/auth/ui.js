@@ -2,7 +2,7 @@
 
 const store = require('../store')
 const events = require('./events')
-
+const showAllTemplate = require('../templates/show-all.handlebars')
 // User Button Function UI's
 // Success function
 // followed by
@@ -104,15 +104,38 @@ const createWordFailure = function () {
 }
 
 const showAllSuccess = function (responseFromApi) {
-  $('#note').text('Showing all of you vocabulary words!')
-  $('#show-all').hide()
+  $('#note').text('Here are all of your vocabulary words!')
+  // $('#show-all').hide()
   console.log(responseFromApi)
+  const showAllHtml = showAllTemplate({ vocabs: responseFromApi.books })
+  $('.content').html(showAllHtml)
 }
 
 const showAllFailure = function () {
-  $('#note').text('Not showing all of you vocabulary words!')
-  console.log('Show words failure')
+  $('#note').text('There was an error upon displaying your vocabulary words!')
+  console.log('Show All words failure')
 }
+
+const showOneSuccess = function (responseFromApi) {
+  ('#note').text('Showing all of you vocabulary words!')
+  console.log(responseFromApi)
+}
+
+const showOneFailure = function () {
+  $('#note').text('There was an error upon displaying your vocabulary word!')
+  console.log('Show One word failure')
+}
+
+const updateWordSuccess = function () {
+  $('#note').text('Your word has been updated')
+  console.log('update word failure')
+}
+
+const updateWordFailure = function () {
+  $('#note').text('Your word has not been updated')
+  console.log('Update word failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -125,5 +148,7 @@ module.exports = {
   createWordSuccess,
   createWordFailure,
   showAllSuccess,
-  showAllFailure
+  showAllFailure,
+  updateWordSuccess,
+  updateWordFailure
 }

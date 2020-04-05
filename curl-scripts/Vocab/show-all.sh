@@ -1,4 +1,4 @@
-#!/bin/bash
+'use strict'
 
 curl "http://localhost:4741/vocabs" \
   --include \
