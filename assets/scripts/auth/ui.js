@@ -103,11 +103,11 @@ const createWordFailure = function () {
   // get rid of example box
 }
 
-const showAllSuccess = function (responseFromApi) {
+const showAllSuccess = function (data) {
   $('#note').text('Here are all of your vocabulary words!')
   // $('#show-all').hide()
-  console.log(responseFromApi)
-  const showAllHtml = showAllTemplate({ vocabs: responseFromApi.books })
+  // console.log(responseFromApi)
+  const showAllHtml = showAllTemplate({ vocabs: data.vocabs })
   $('.content').html(showAllHtml)
 }
 
