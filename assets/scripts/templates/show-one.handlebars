@@ -1,0 +1,39 @@
+{{#each vocabs as |vocab|}}
+{{log book}}
+<section data-id="{{vocab.data}}">
+  <h3>{{vocab.word}}</h3>
+  <p>
+    {{#if vocab.definition}}
+      {{Definition: vocab.definition}}
+    {{else}}
+      Not yet defined.
+    {{/if}}
+  </p>
+  <p>
+    {{#if vocab.sounds_like}}
+      {{Sounds like: vocab.sounds_like}}
+    {{else}}
+      Not yet defined.
+    {{/if}}
+  </p>
+  <p>
+    {{#if vocab.synonyms}}
+      {{vocab.synonyms}}
+    {{else}}
+      Not yet defined.
+    {{/if}}
+  </p>
+  <p>
+    {{#if vocab.antonyms}}
+      {{vocab.antonyms}}
+    {{else}}
+      Not yet defined.
+    {{/if}}
+  </p>
+  <p>
+    {{#if vocab.sentence}}
+      {{vocab.sentence}}
+    {{else}}
+      Not yet defined.
+    {{/if}}
+  </p>
