@@ -15,80 +15,98 @@
   </head>
 
   <body>
+    <!-- <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" <img src="face.jpeg"</a>
+        </div>
+      </div>
+    </nav> -->
 
-
-  <h1 class="page-header">inVOC<small>...a learning application</small></h1>
+  <p class="page-header">inVOC<small>...a learning application</small></p>
 
   <hr>
 
-  <div class="directions">
-  <p>inVOC is a learning application.<br><br><strong>STORE</strong> information about words that you are learning.<br><strong>UPDATE</strong> that information over time.<br><del>REMOVE</del> when you are ready to move onto new words.<br><strong>RESTART</strong>
-    the process!</p>
-  <div>
-  <div class="container" display="in-line">
+  <p id='note'></p>
+
   <div class="container">
-    <form id="sign-up" class="border">
+    <div class="row">
+
+      <div class="col">
+        <form id="new-word" class="border">
+          <input type="submit" value="Create New Word">
+        </form>
+      </div>
+
+      <div class="col"
+        <form id="show-all" class="border">
+          <input type="submit" value="View All Words">
+        </form>
+      </div>
+
+      <div class="col">
+        <form id="sign-out" class="border">
+          <input type="submit" value="Sign-Out!">
+        </form>
+      </div>
+
+      <div class="col">
+        <form id="change-password" class="border">
+          <fieldset>
+            <input class="blackWithWhite" type="password" name="passwords[old]" placeholder="current password">
+            <input class="whiteWithBlack" type="password" name="passwords[new]" placeholder="new password">
+            <input type="submit" value="Change Password!" placeholder="Change Password">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form id="create-word" class="border">
       <fieldset>
-        <input type="text" name="credentials[email]" placeholder="sign_up@email.com">
-        <input type="password" name="credentials[password]"   placeholder="create password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-        <input class="sign-up-btn" type="submit" value="Sign-Up!">
+        <input class="create-form" type="text" name="vocab[word]" placeholder="enter a word">
+        <input class="create-form" type="text" name="vocab[definition]" placeholder="define the word">
+        <input class="create-form" type="text" name="vocab[sounds_like]" placeholder="the word sound like...">
+        <input class="create-form" type="text" name="vocab[synonyms]" placeholder="enter similar words">
+        <input class="create-form" type="text" name="vocab[antonyms]" placeholder="enter opposite words">
+        <input class="create-form" type="text" name="vocab[sentence]" placeholder="use word in a sentence">
+        <input type="submit" value="Create a Word!">
       </fieldset>
     </form>
   </div>
-  <div class="container">
-    <form id="sign-in" class="border">
-    <fieldset>
-      <input class="blackWithWhite" type="text" name="credentials[email]" placeholder="sign_in@email.com">
-      <input class="whiteWithBlack" type="password" name="credentials[password]" placeholder="enter password">
-      <input class="sign-in" type="submit" value="Sign-In!">
-    </fieldset>
+
+  <div class="directions">
+    <strong>STORE</strong> information about words that you are learning.<br><strong>UPDATE</strong> that information over time.<br><del>REMOVE</del> when you are ready to move onto new words.<br><strong>RESTART</strong>
+    the process!</p>
   </div>
+
+  <div class="container" class="signs">
+    <div class="row">
+      <div class="col"
+        <form id="sign-up" class="border">
+          <fieldset>
+            <input type="text" name="credentials[email]" placeholder="sign_up@email.com">
+            <input type="password" name="credentials[password]"   placeholder="create password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+            <input class="sign-up-btn" type="submit" value="Sign-Up!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="col">
+        <form id="sign-in" class="border">
+          <fieldset>
+            <input class="blackWithWhite" type="text" name="credentials[email]" placeholder="sign_in@email.com">
+            <input class="whiteWithBlack" type="password" name="credentials[password]" placeholder="enter password">
+            <input class="sign-in" type="submit" value="Sign-In!">
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
-  </form>
-
-  <p id='note'></p>
-
-  <form id="create-word" class="border">
-  <fieldset>
-    <input class="create-form" type="text" name="vocab[word]" placeholder="enter a word">
-    <input class="create-form" type="text" name="vocab[definition]" placeholder="define the word">
-    <input class="create-form" type="text" name="vocab[sounds_like]" placeholder="the word sound like...">
-    <input class="create-form" type="text" name="vocab[synonyms]" placeholder="enter similar words">
-    <input class="create-form" type="text" name="vocab[antonyms]" placeholder="enter opposite words">
-    <input class="create-form" type="text" name="vocab[sentence]" placeholder="use word in a sentence">
-    <input type="submit" value="Create a Word!">
-  </fieldset>
-  </form>
-
-  <form id="show-all" class="border">
-  <input type="submit" value="Show-All!">
-  </form>
-
-  <form id="show-one" class="border">
-  <input type="submit" value="See More!">
-  </form>
-
-  <form id="update-word" class="border">
-  <input type="submit" value="See More!">
-  </form>
 
   <div id="content" class="content"></div>
 
-  <footer>
-  <form id="change-password" class="border">
-    <fieldset>
-      <input class="blackWithWhite" type="password" name="passwords[old]" placeholder="current password">
-      <input class="whiteWithBlack" type="password" name="passwords[new]" placeholder="new password">
-      <input type="submit" value="Change Password!" placeholder="Change Password">
-    </fieldset>
-  </form>
-
-  <form id="sign-out" class="border">
-    <input type="submit" value="Sign-Out!">
-  </form>
-
-  </footer>
   </body>
 
   </html>

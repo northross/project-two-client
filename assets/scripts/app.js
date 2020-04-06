@@ -22,14 +22,14 @@ $(() => {
 
   // vocab events
   vocabEvents.addHandlers()
+  $('#new-word').on('submit', authEvents.onNewWord)
   $('#create-word').on('submit', authEvents.onCreateWord)
   $('#show-all').on('submit', authEvents.onShowAll)
-  $('#show-one').on('submit', authEvents.onShowOne)
-  $('#update-word').on('submit', authEvents.onUpdateWord)
+
 
   // vocab buttons display
   $('#create-word').hide()
   $('#show-all').hide()
-  $('#show-one').hide()
-  $('#update-word').hide()
+  $('#new-word').hide()
+  $('#content').hide()
 })

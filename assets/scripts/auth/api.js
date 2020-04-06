@@ -65,15 +65,29 @@ const showAll = function () {
   })
 }
 
-const showOne = function () {
+const showOne = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/vocabs',
+    url: config.apiUrl + '/vocabs/' + id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
+
+
+const deleteWord = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/vocabs/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: id
+  })
+  console.log(id)
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -81,5 +95,6 @@ module.exports = {
   changePassword,
   createWord,
   showAll,
-  showOne
+  showOne,
+  deleteWord
 }

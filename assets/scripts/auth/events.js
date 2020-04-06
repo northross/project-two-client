@@ -4,6 +4,8 @@ const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const showAllTemplate = require('../templates/show-all.handlebars')
+const showOneTemplate = require('../templates/show-one.handlebars')
 
 // User Button Functions
 
@@ -46,6 +48,14 @@ const onChangePassword = function (event) {
 
 // Vocab Button Functions
 
+const onNewWord = function (event) {
+  event.preventDefault()
+  $('#create-word').show()
+  $('.directions').hide()
+  $('#content').hide()
+  $('#note').text("Let's build a new word!")
+}
+
 const onCreateWord = function (event) {
   event.preventDefault()
   const vocabData = getFormFields(event.target)
@@ -53,6 +63,13 @@ const onCreateWord = function (event) {
   api.createWord(vocabData)
     .then(ui.createWordSuccess)
     .catch(ui.createWordFailure)
+}
+
+const getWord = function (event, id) {
+  event.preventDefault()
+  console.log('hello world')
+  const showOnehtml = showOneTemplate({ vocabs: data.vocabs })
+  $('.content').html(showOneHtml)
 }
 
 const onShowAll = function (event) {
@@ -65,23 +82,28 @@ const onShowAll = function (event) {
 
 const onShowOne = function (event) {
   event.preventDefault()
+  const id = $(event.target).data('id')
   console.log('onShowOne function')
-  api.showOne()
-    .then(ui.showOneSuccess)
+  api.showOne(id)
+    .then(function () {
+      getWord(event, id)
+    })
     .catch(ui.showOneFailure)
 }
 
-const onUpdateWord = function (event) {
-  event.preventDefault()
-  console.log('Updateword function')
-  const data = getFormFields(event.target)
-  api.UpdateWord()
-    .then(ui.updateWordSuccess)
-    .catch(ui.UpdateWordFailure)
+const onDeleteWord = function (event) {
+  const id = $(event.target).data('id')
+  api.deleteWord(id)
+  .then(function () {
+    onShowAll(event)
+  })
+  .catch(ui.deleteWordfailure)
 }
 
 const addHandlers = () => {
   $('#show-all').on('click', onShowAll)
+  $('.content').on('click', '.information-btn', console.log)
+  $('#content').on('click', '.delete-btn', onDeleteWord)
 }
 
 module.exports = {
@@ -92,6 +114,8 @@ module.exports = {
   onCreateWord,
   onShowAll,
   onShowOne,
-  onUpdateWord,
+  getWord,
+  onNewWord,
+  onDeleteWord,
   addHandlers
 }

@@ -6,3 +6,36 @@
   font-family: 'Comic Neue', cursive;
   text-align: center;
 }
+
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+
+.page-header {
+  font-size: 4em;
+  color: rbga(250, 190, 88, 1);
+}
+
+.signs {
+  border-style: solid;
+}
+
+.directions {
+  height: 150px;
+}
+
+#content {
+  border-style: solid;
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.btn-seemore {
+  border-style: solid;
+}
+
+.directions {
+  padding: 20px;
+}

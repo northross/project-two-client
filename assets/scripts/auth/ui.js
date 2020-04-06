@@ -3,6 +3,7 @@
 const store = require('../store')
 const events = require('./events')
 const showAllTemplate = require('../templates/show-all.handlebars')
+const showOneTemplate = require('../templates/show-one.handlebars')
 // User Button Function UI's
 // Success function
 // followed by
@@ -11,17 +12,18 @@ const showAllTemplate = require('../templates/show-all.handlebars')
 const signUpSuccess = function (data) {
   $('#note').show()
   $('#note').text('Welcome to a Very Exclusive Club for Learners!')
-  $('#note').text("Please 'Sign-In' to Play!")
+
   console.log('SU works')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
+  $('#signs').hide()
 }
 
 const signUpFailure = function (error) {
   $('#note').text('Sign-Up was Unsuccessful')
   console.log('SU is broken')
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
+  $('form input[type="text"]').val('')
+  $('form input[type="password"]').val('')
 }
 
 const signInSuccess = function (data) {
@@ -29,7 +31,8 @@ const signInSuccess = function (data) {
   $('#note').text("Welcome! Let's Build Some Vocabulary Word Tables!")
 
   $('#change-password').show()
-  $('#create-word').show()
+  $('#new-word').show()
+
   $('#sign-out').show()
   $('#sign-in').hide()
   $('#sign-up').hide()
@@ -42,7 +45,7 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#note').text("!")
+  $('#note').text("Invalid email and/or password. Please be sure that you have signed-up first and try again!")
   $('#note').removeClass()
   $('#note').addClass('Sign-In: Unsuccessful!')
   console.log('SI is broken')
@@ -66,16 +69,18 @@ const changePasswordFailure = function (error) {
 
 
 const signOutSuccess = function (data) {
-  $('#note').text('Thank you for learning today!')
+  $('#note').text('Thank you for learning today! Sign back in when you are ready to learn again.')
   $('#change-password').hide()
   console.log('SO works')
   // $('.grid').hide()
   $('#sign-in').show()
   $('#sign-up').show()
-
   $('#sign-out').hide()
-  $('#change-password').hide()
+  $('.directions').show()
+  $('.content').hide()
+  $('#show-all').hide()
   $('#create-word').hide()
+  $('#new-word').hide()
 }
 
 const signOutFailure = function (error) {
@@ -90,9 +95,6 @@ const signOutFailure = function (error) {
 
 const createWordSuccess = function (responseFromApi) {
   $('#note').text('You have created a new word!')
-  $('#note').removeClass()
-  $('#note').addClass('A new word has been created!')
-  // store.user = data.user.vocab
   console.log(responseFromApi)
   // get rid of example box
 }
@@ -105,8 +107,11 @@ const createWordFailure = function () {
 
 const showAllSuccess = function (data) {
   $('#note').text('Here are all of your vocabulary words!')
+  $('.directions').hide()
   // $('#show-all').hide()
   // console.log(responseFromApi)
+  $('#create-word').hide()
+  $('#content').show()
   const showAllHtml = showAllTemplate({ vocabs: data.vocabs })
   $('.content').html(showAllHtml)
 }
@@ -116,9 +121,12 @@ const showAllFailure = function () {
   console.log('Show All words failure')
 }
 
-const showOneSuccess = function (responseFromApi) {
-  ('#note').text('Showing all of you vocabulary words!')
+const showOneSuccess = function () {
+  ('#note').text('Here is your word!')
   console.log(responseFromApi)
+  $('.content').hide()
+  const showOnehtml = showOneTemplate({ vocabs: data.vocabs })
+  $('.content').html(showOneHtml)
 }
 
 const showOneFailure = function () {
@@ -126,15 +134,6 @@ const showOneFailure = function () {
   console.log('Show One word failure')
 }
 
-const updateWordSuccess = function () {
-  $('#note').text('Your word has been updated')
-  console.log('update word failure')
-}
-
-const updateWordFailure = function () {
-  $('#note').text('Your word has not been updated')
-  console.log('Update word failure')
-}
 
 module.exports = {
   signUpSuccess,
@@ -149,6 +148,6 @@ module.exports = {
   createWordFailure,
   showAllSuccess,
   showAllFailure,
-  updateWordSuccess,
-  updateWordFailure
+  showOneSuccess,
+  showOneFailure
 }
