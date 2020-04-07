@@ -6,7 +6,7 @@ const store = require('../store')
 const ui = require('./ui.js')
 
 
-const signUp = function (credentials) {
+const signUp = function(credentials) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -14,7 +14,7 @@ const signUp = function (credentials) {
   })
 }
 
-const signIn = function (data) {
+const signIn = function(data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -22,7 +22,7 @@ const signIn = function (data) {
   })
 }
 
-const changePassword = function (data) {
+const changePassword = function(data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -33,7 +33,7 @@ const changePassword = function (data) {
   })
 }
 
-const signOut = function () {
+const signOut = function() {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -43,7 +43,7 @@ const signOut = function () {
   })
 }
 
-const createWord = function (vocabData) {
+const createWord = function(vocabData) {
   return $.ajax({
     url: config.apiUrl + '/vocabs',
     method: 'POST',
@@ -52,10 +52,9 @@ const createWord = function (vocabData) {
     },
     data: vocabData
   })
-  console.log(vocabData)
 }
 
-const showAll = function () {
+const showAll = function() {
   return $.ajax({
     url: config.apiUrl + '/vocabs',
     method: 'GET',
@@ -65,7 +64,7 @@ const showAll = function () {
   })
 }
 
-const showOne = function (id) {
+const showOne = function(id) {
   return $.ajax({
     url: config.apiUrl + '/vocabs/' + id,
     method: 'GET',
@@ -76,7 +75,7 @@ const showOne = function (id) {
 }
 
 
-const deleteWord = function (id) {
+const deleteWord = function(id) {
   return $.ajax({
     url: config.apiUrl + '/vocabs/' + id,
     method: 'DELETE',
@@ -85,7 +84,17 @@ const deleteWord = function (id) {
     },
     data: id
   })
-  console.log(id)
+}
+
+const updateWord = function(updateData) {
+  return $.ajax({
+    url: config.apiUrl + '/vocabs/' + store.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: updateData
+  })
 }
 
 module.exports = {
@@ -95,6 +104,7 @@ module.exports = {
   changePassword,
   createWord,
   showAll,
+  updateWord,
   showOne,
   deleteWord
 }

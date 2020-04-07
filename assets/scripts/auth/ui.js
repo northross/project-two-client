@@ -5,28 +5,27 @@ const events = require('./events')
 const showAllTemplate = require('../templates/show-all.handlebars')
 const showOneTemplate = require('../templates/show-one.handlebars')
 
+
 // User Button Function UI's
 // Success function
 // followed by
 // Failure Function
 
-const signUpSuccess = function (data) {
+const signUpSuccess = function(data) {
   $('#note').show()
   $('#note').text('Welcome to a Very Exclusive Club for Learners!')
-  console.log('SU works')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
 
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function(error) {
   $('#note').text('Sign-Up was Unsuccessful')
-  console.log('SU is broken')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
 }
 
-const signInSuccess = function (data) {
+const signInSuccess = function(data) {
   // if ()
   $('#note').show()
   $('#note').text("Welcome! Let's Build Some Vocabulary Word Tables!")
@@ -38,115 +37,136 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#show-all').show()
-  console.log('SI works')
-  console.log(store.user)
   store.user = data.user
-  $('form input[type="text"]').val('')
+  $('form input[type="email"]').val('')
   $('form input[type="password"]').val('')
 }
 
-const signInFailure = function (error) {
+const signInFailure = function(error) {
   $('#note').text("Invalid email and/or password. Please be sure that you have signed-up first and try again!")
   $('#note').removeClass()
   $('#note').addClass('Sign-In: Unsuccessful!')
-  console.log('SI is broken')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
 }
 
-const changePasswordSuccess = function (data) {
-  $('#note').text('Password Change was Successful!')
-  console.log('CP works')
+const changePasswordSuccess = function(data) {
+  $('#note').text('You changed your password!')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
 }
 
-const changePasswordFailure = function (error) {
+const changePasswordFailure = function(error) {
   $('#note').text('Password Change was Unsuccessful!')
-  console.log('CP is broken')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
 }
 
 
-const signOutSuccess = function (data) {
+const signOutSuccess = function(data) {
+  // messages / directions
   $('#note').text('Thank you for learning today! Come back soon!')
+  $('.directions').show()
+  // user elements
   $('#change-password').hide()
-  console.log('SO works')
-  // $('.grid').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+  $('#signs').show()
   $('#sign-out').hide()
-  $('.directions').show()
+  //  word elements
   $('.content').hide()
   $('#show-all').hide()
   $('#create-word').hide()
   $('#new-word').hide()
 }
 
-const signOutFailure = function (error) {
+const signOutFailure = function(error) {
   $('#note').text('Woops, there was an error signing-out!')
-  console.log('SO is broken')
 }
 
 // Vocab Button Function UI
-  // Success function
-  // followed by
-  // Failure Function
+// Success function
+// followed by
+// Failure Function
 
-const createWordSuccess = function (responseFromApi) {
+const createWordSuccess = function(responseFromApi) {
   $('#note').text('You have created a new word!')
-  console.log(responseFromApi)
   $('form input[type="text"]').val('')
   $('#create-word').hide()
-  // get rid of example box
 }
 
-const createWordFailure = function () {
+const createWordFailure = function() {
   $('#note').text('Please enter all fields and try again!')
-  console.log('Create word success')
   $('form input[type="text"]').val('')
   // get rid of example box
 }
 
-const showAllSuccess = function (data) {
+const showAllSuccess = function(data) {
   if (data.vocabs.length === 0) {
-    return  $('#note').text('You have not made any words. Click "Creat Word" to get started!')
+    $('#content').hide()
+    $('#create-word').hide()
+    return $('#note').text('You do not have any words. Click "Creat Word" to get started!')
   } else {
-    console.log(data.vocabs.length)
-    // console.log(data.vocabs(id))
     $('#note').text('Here are all of your vocabulary words!')
     $('.directions').hide()
     // $('#show-all').hide()
     $('#create-word').hide()
+    $('.update-word-div').hide()
     $('#content').show()
-    const showAllHtml = showAllTemplate({ vocabs: data.vocabs })
+    const showAllHtml = showAllTemplate({
+      vocabs: data.vocabs
+    })
     $('.content').html(showAllHtml)
   }
 }
 
-const showAllFailure = function () {
+const showAllFailure = function() {
   $('#note').text('There was an error upon displaying your vocabulary words!')
-  console.log('Show All words failure')
 }
 
-// const showOneSuccess = function () {
-//   ('#note').text('Here is your word!')
-//   console.log(responseFromApi)
-//   $('.content').hide()
-//   const showOnehtml = showOneTemplate({ vocabs: data.vocabs })
-//   $('.content').html(showOneHtml)
-// }
-
-const getWordSuccess = function (info) {
-  console.log("info:", info.vocab)
-  const showOneHtml = showOneTemplate({ vocabs: info.vocab })
-  console.log(showOneTemplate)
+const getWordSuccess = function(info) {
+  const showOneHtml = showOneTemplate({
+    vocabs: info.vocab
+  })
+  $('#note').text("Here is more information about your word...")
   $('.content').html(showOneHtml)
 }
 
-const getWordFailure = function () {
-  console.log("this didn't work")
+const getWordFailure = function() {
+  $('#note').text('Woops... There was an error with retreiving your word')
+}
+
+const onSetUpdateSuccess = function(data) {
+  store.id = data.vocab.id
+  $('#note').text("Let's change your word's information!")
+  $('.content').hide()
+  $('.update-word-div').show()
+  $('#word').val(data.vocab.word)
+  $('#definition').val(data.vocab.definition)
+  $('#sounds_like').val(data.vocab.sounds_like)
+  $('#synonyms').val(data.vocab.synonyms)
+  $('#antonyms').val(data.vocab.antonyms)
+  $('#sentence').val(data.vocab.sentence)
+}
+
+const onSetUpdateFailure = function(error) {
+  $('#note').text('There was an issue setting this update. In the meantime, you can create a new word and delete the current version')
+  $('.update-word-div').hide()
+  $('.directions').show()
+}
+
+const onUpdateSubmitSuccess = function() {
+  $('#note').text('You have updated your word! Click "View All Words" to see!')
+  $('form input[type="text"]').val('')
+  $('.update-word-div').hide()
+  $('.directions').show()
+}
+
+const onUpdateSubmitFailure = function(error) {
+  $('#note').text('There was an issue setting this update. In the meantime, you can create a new word and delete the current version')
+  $('form input[type="text"]').val('')
+  $('.update-word-div').hide()
+  $('.directions').show()
 }
 
 // const showOneFailure = function () {
@@ -168,8 +188,10 @@ module.exports = {
   createWordFailure,
   showAllSuccess,
   showAllFailure,
-  // showOneSuccess,
-  // showOneFailure,
+  onUpdateSubmitFailure,
+  onUpdateSubmitSuccess,
   getWordFailure,
-  getWordSuccess
+  getWordSuccess,
+  onSetUpdateSuccess,
+  onSetUpdateFailure
 }

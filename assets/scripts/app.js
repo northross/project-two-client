@@ -25,6 +25,7 @@ $(() => {
   $('#new-word').on('submit', authEvents.onNewWord)
   $('#create-word').on('submit', authEvents.onCreateWord)
   $('#show-all').on('submit', authEvents.onShowAll)
+  $('#update-form').on('submit', authEvents.onUpdateSubmit)
 
 
   // vocab buttons display
@@ -32,4 +33,5 @@ $(() => {
   $('#show-all').hide()
   $('#new-word').hide()
   $('#content').hide()
+  $('.update-word-div').hide()
 })

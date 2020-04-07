@@ -9,38 +9,34 @@ const showOneTemplate = require('../templates/show-one.handlebars')
 
 // User Button Functions
 
-const onSignUp = function (event) {
+const onSignUp = function(event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('success?')
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = function (event) {
+const onSignIn = function(event) {
   event.preventDefault()
   // $('.rules').show(()=>{$('.rules').css('display', 'rules')})
   const data = getFormFields(event.target)
-  console.log(store.user)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
 
-const onSignOut = function (event) {
+const onSignOut = function(event) {
   event.preventDefault()
   // $('.grid').hide()
-  console.log('success?')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
 
-const onChangePassword = function (event) {
+const onChangePassword = function(event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('success?')
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -49,57 +45,74 @@ const onChangePassword = function (event) {
 // Vocab Button Functions
 
 // This opens my onCreateWord form
-const onNewWord = function (event) {
+const onNewWord = function(event) {
   event.preventDefault()
   $('#create-word').show()
   $('.directions').hide()
   $('#content').hide()
+  $('.update-word-div').hide()
   $('#note').text("Let's build a new word!")
 }
 
 // This allows the for submitting create word form
-const onCreateWord = function (event) {
+const onCreateWord = function(event) {
   event.preventDefault()
   const vocabData = getFormFields(event.target)
-  console.log('onCreateWord function')
   api.createWord(vocabData)
     .then(ui.createWordSuccess)
     .catch(ui.createWordFailure)
 }
 
+const onUpdateSubmit = function(event) {
+  event.preventDefault()
+  const updateData = getFormFields(event.target)
+  api.updateWord(updateData)
+    .then(ui.onUpdateSubmitSuccess)
+    .catch(ui.onUpdateSubmitFailure)
+}
+
 // function for getting my single word - triggered by showOne
 
-const onShowAll = function (event) {
+const onShowAll = function(event) {
   event.preventDefault()
-  console.log('onShowAll function')
   api.showAll()
     .then(ui.showAllSuccess)
     .catch(ui.showAllFailure)
 }
 
-const onShowOne = function (event) {
+const onShowOne = function(event) {
   const id = $(event.target).data('id')
   api.showOne(id)
-      .then((data)=>{
-        console.log('data:', data)
-        ui.getWordSuccess(data)
-      })
-      .catch(ui.getWordFailure)
-  }
+    .then((data) => {
+      ui.getWordSuccess(data)
+    })
+    .catch(ui.getWordFailure)
+}
 
-const onDeleteWord = function (event) {
+const onDeleteWord = function(event) {
   const id = $(event.target).data('id')
   api.deleteWord(id)
-  .then(function () {
-    onShowAll(event)
-  })
-  .catch(ui.deleteWordfailure)
+    .then(function() {
+      onShowAll(event)
+    })
+    .catch(ui.deleteWordfailure)
+}
+
+const onSetUpdate = function(event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  api.showOne(id)
+    .then((data) => {
+      ui.onSetUpdateSuccess(data)
+    })
+    .catch(ui.onSetUpdateFailure)
 }
 
 const addHandlers = () => {
   $('#show-all').on('click', onShowAll)
   $('.content').on('click', '.information-btn', onShowOne)
   $('#content').on('click', '.delete-btn', onDeleteWord)
+  $('.content').on('click', '.btn-secondary', onSetUpdate)
 }
 
 module.exports = {
@@ -111,16 +124,8 @@ module.exports = {
   onShowAll,
   onShowOne,
   onNewWord,
+  onSetUpdate,
   onDeleteWord,
+  onUpdateSubmit,
   addHandlers
 }
-
-// const onShowOne = function (event) {
-//   const id = $(event.target).data('id')
-//   api.showOne(id)
-//       .then((data)=>{
-//         console.log('data:', data)
-//         ui.getWordSuccess(data)
-//       })
-//       .catch(ui.getWordFailure)
-//   }
