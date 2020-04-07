@@ -30,6 +30,7 @@ $(() => {
 
   // vocab buttons display
   $('#create-word').hide()
+  $('.create-word-div').hide()
   $('#show-all').hide()
   $('#new-word').hide()
   $('#content').hide()
