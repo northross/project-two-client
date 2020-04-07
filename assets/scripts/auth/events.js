@@ -48,6 +48,7 @@ const onChangePassword = function (event) {
 
 // Vocab Button Functions
 
+// This opens my onCreateWord form
 const onNewWord = function (event) {
   event.preventDefault()
   $('#create-word').show()
@@ -56,6 +57,7 @@ const onNewWord = function (event) {
   $('#note').text("Let's build a new word!")
 }
 
+// This allows the for submitting create word form
 const onCreateWord = function (event) {
   event.preventDefault()
   const vocabData = getFormFields(event.target)
@@ -65,12 +67,7 @@ const onCreateWord = function (event) {
     .catch(ui.createWordFailure)
 }
 
-const getWord = function (event, id) {
-  event.preventDefault()
-  console.log('hello world')
-  const showOnehtml = showOneTemplate({ vocabs: data.vocabs })
-  $('.content').html(showOneHtml)
-}
+// function for getting my single word - triggered by showOne
 
 const onShowAll = function (event) {
   event.preventDefault()
@@ -81,15 +78,14 @@ const onShowAll = function (event) {
 }
 
 const onShowOne = function (event) {
-  event.preventDefault()
   const id = $(event.target).data('id')
-  console.log('onShowOne function')
   api.showOne(id)
-    .then(function () {
-      getWord(event, id)
-    })
-    .catch(ui.showOneFailure)
-}
+      .then((data)=>{
+        console.log('data:', data)
+        ui.getWordSuccess(data)
+      })
+      .catch(ui.getWordFailure)
+  }
 
 const onDeleteWord = function (event) {
   const id = $(event.target).data('id')
@@ -102,7 +98,7 @@ const onDeleteWord = function (event) {
 
 const addHandlers = () => {
   $('#show-all').on('click', onShowAll)
-  $('.content').on('click', '.information-btn', console.log)
+  $('.content').on('click', '.information-btn', onShowOne)
   $('#content').on('click', '.delete-btn', onDeleteWord)
 }
 
@@ -114,8 +110,17 @@ module.exports = {
   onCreateWord,
   onShowAll,
   onShowOne,
-  getWord,
   onNewWord,
   onDeleteWord,
   addHandlers
 }
+
+// const onShowOne = function (event) {
+//   const id = $(event.target).data('id')
+//   api.showOne(id)
+//       .then((data)=>{
+//         console.log('data:', data)
+//         ui.getWordSuccess(data)
+//       })
+//       .catch(ui.getWordFailure)
+//   }

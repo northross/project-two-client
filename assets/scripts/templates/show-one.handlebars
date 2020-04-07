@@ -1,40 +1,46 @@
-{{#each vocabs as |vocab|}}
+{{#with vocabs }}
 {{log book}}
-<section data-id="{{vocab.data}}">
-  <h3>{{vocab.word}}</h3>
+<section>
+  <h3>{{word}}</h3>
   <p>
-    {{#if vocab.definition}}
-      {{Definition: vocab.definition}}
+    Definition:
+    {{#if definition includeZero=true}}
+      {{definition}}
     {{else}}
       Not yet defined.
     {{/if}}
   </p>
   <p>
-    {{#if vocab.sounds_like}}
-      {{Sounds like: vocab.sounds_like}}
+    Sounds like:
+    {{#if sounds_like includeZero=true}}
+      {{sounds_like}}
     {{else}}
       Not yet defined.
     {{/if}}
   </p>
   <p>
-    {{#if vocab.synonyms}}
-      {{vocab.synonyms}}
+    Synonyms:
+    {{#if synonyms includeZero=true}}
+      {{synonyms}}
     {{else}}
       Not yet defined.
     {{/if}}
   </p>
   <p>
-    {{#if vocab.antonyms}}
-      {{vocab.antonyms}}
+    Antonyms:
+    {{#if antonyms includeZero=true}}
+      {{antonyms}}
     {{else}}
       Not yet defined.
     {{/if}}
   </p>
   <p>
-    {{#if vocab.sentence}}
-      {{vocab.sentence}}
+    Sentence:
+    {{#if sentence includeZero=true}}
+      {{sentence}}
     {{else}}
       Not yet defined.
     {{/if}}
   </p>
-{{/each}}
+  <button data-id="{{id}}" class="btn delete-btn">Update</button>
+{{/with}}

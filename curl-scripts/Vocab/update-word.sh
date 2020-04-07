@@ -1,9 +1,19 @@
 'use strict'
 
-curl "http://localhost:4741/vocabs/${ID}" \
+curl "http://localhost:4741/update-word" \
   --include \
-  --request GET \
+  --request PATCH \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=${TOKEN}" \
+  --header "Authorization: Token token=${TOKEN}"" \
+  --data '{
+  "vocabs": {
+    "word": "'"${WORD}"'",
+    "definition": "'"${DEFINITION}"'",
+    "sounds_like": "'"${SOUNDS_LIKE}"'",
+    "synonyms": "'"${SYNONYM}"'",
+    "antonyms": "'"${ANTONYM}"'",
+    "sentence": "'"${SENTENCE}"'"
+  }
+}'
 
 echo

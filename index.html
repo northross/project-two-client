@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <title>BuildCabulary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
@@ -12,10 +12,10 @@
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-  </head>
+</head>
 
-  <body>
-    <!-- <nav class="navbar">
+<body>
+  <!-- <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" <img src="face.jpeg"</a>
@@ -38,9 +38,8 @@
         </form>
       </div>
 
-      <div class="col"
-        <form id="show-all" class="border">
-          <input type="submit" value="View All Words">
+      <div class="col" <form id="show-all" class="border">
+        <input type="submit" value="View All Words">
         </form>
       </div>
 
@@ -53,15 +52,15 @@
       <div class="col">
         <form id="change-password" class="border">
           <fieldset>
-            <input class="blackWithWhite" type="password" name="passwords[old]" placeholder="current password">
-            <input class="whiteWithBlack" type="password" name="passwords[new]" placeholder="new password">
+            <input type="password" name="passwords[old]" placeholder="current password">
+            <input type="password" name="passwords[new]" placeholder="new password">
             <input type="submit" value="Change Password!" placeholder="Change Password">
           </fieldset>
         </form>
       </div>
     </div>
   </div>
-
+  <!--
   <div class="container">
     <form id="create-word" class="border">
       <fieldset>
@@ -74,6 +73,34 @@
         <input type="submit" value="Create a Word!">
       </fieldset>
     </form>
+  </div> -->
+  <div class="create-word-div">
+    <div id="create-word" class="col-sm-5">
+      <div>
+        <form>
+          <div class="form-group">
+            <label>Let's create a new word!</label>
+            <input type="text" class="form-control form-control-sm" name="vocab[word]" aria-describedby="emailHelp" placeholder="enter your word">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" name="vocab[definition]" placeholder="define your word">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" name="vocab[sounds_like]" placeholder="word sounds like...">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" name="vocab[synonyms]" placeholder="enter similar words">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" name="vocab[antonyms]" placeholder="enter different words">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" name="vocab[sentence]" placeholder="use word in a sentence">
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="directions">
@@ -81,32 +108,66 @@
     the process!</p>
   </div>
 
-  <div class="container" class="signs">
+  <!-- <div class="container" class="signs">
     <div class="row">
-      <div class="col"
+      <div class="col">
         <form id="sign-up" class="border">
           <fieldset>
             <input type="text" name="credentials[email]" placeholder="sign_up@email.com">
-            <input type="password" name="credentials[password]"   placeholder="create password">
+            <input type="password" name="credentials[password]" placeholder="create password">
             <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-            <input class="sign-up-btn" type="submit" value="Sign-Up!">
+            <input class="sign-up" type="submit" value="Sign-Up!">
           </fieldset>
         </form>
       </div>
       <div class="col">
         <form id="sign-in" class="border">
           <fieldset>
-            <input class="blackWithWhite" type="text" name="credentials[email]" placeholder="sign_in@email.com">
-            <input class="whiteWithBlack" type="password" name="credentials[password]" placeholder="enter password">
+            <input type="text" name="credentials[email]" placeholder="sign_in@email.com">
+            <input type="password" name="credentials[password]" placeholder="enter password">
             <input class="sign-in" type="submit" value="Sign-In!">
           </fieldset>
         </form>
+      </div>
+    </div>
+  </div> -->
+  <div id="signs" class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <form id="sign-in">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Sign-In!</label>
+            <input type="email" class="form-control form-control-sm" name="credentials[email]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control form-control-sm" name="credentials[password]" id="exampleInputPassword1" placeholder="Enter Password">
+          </div>
+          <button type="submit" class="sign-up">Sign-In</button>
+        </form>
+      </div>
+      <div class="col-sm-3">
+        <div id="sign-up">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Sign-Up!</label>
+              <input type="email" class="form-control form-control-sm" name="credentials[email]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control form-control-sm" name="credentials[password]" id="exampleInputPassword1" placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control form-control-sm" name="credentials[password_confirmation]" id="exampleInputPassword1" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="sign-up">Sign-Up</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 
   <div id="content" class="content"></div>
 
-  </body>
+</body>
 
-  </html>
+</html>
+<form>
