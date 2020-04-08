@@ -48,6 +48,7 @@ const onChangePassword = function(event) {
 const onNewWord = function(event) {
   event.preventDefault()
   $('#create-word').show()
+  $('.create-word-div').show()
   $('.directions').hide()
   $('#content').hide()
   $('.update-word-div').hide()

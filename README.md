@@ -20,6 +20,7 @@ A single-page resource that allows students to build a relationship with their v
 #### Planning:
 My first step was building a simple wireframe to have a vision of the page before execution and building a user story to be aware of functions to create for the game to be operative and user-friendly.
 Next was to create a resource using Rudy on Rails and Postgresql. Once tested thoroughly, the production went to the client side.
+My resource for the project was a vocabulary word table. The table would have keys such as Word, Definition, Sounds_like, Synonyms, Antonyms, and Sentence. The use would be able to provide their input values for their words.
 Here, was where user stories and wireframe really came into play and heavily relied on. These gave inspiration for psuedo-code and how someone was to interact with the website and how the website was to be responsive to the user.
 I went down my list of functions to be operative for the user. Sign-up, sign-in, change password, and sign-out. These are basic functions of any site but it is important for a user to have their own database as well.
 If a user, in this case student, comes to this website, what are they wanting/here to do. This site is for students to develop a relationship with words over the course of their learning experience with them. This site allows a user to create a word, update that word as their understanding of the word evolves, view the word and it's contents for studying purposes, and of course, delete the word as they move onto new words.
