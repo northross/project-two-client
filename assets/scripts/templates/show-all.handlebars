@@ -3,29 +3,29 @@
   <section data-id="{{vocab.id}}" class="vocab-section">
     <h3>
       Word:
-      {{limit vocab.word 14}}
+    <span class="head">{{limit vocab.word 14}}</span>
     </h3>
     <p>
       {{#if vocab.sounds_like}}
-        Sounds like: {{limit vocab.sounds_like 15}}
+        Sounds like:<span> {{limit vocab.sounds_like 15}}
       {{else}}
         Not yet defined.
-      {{/if}}
+      {{/if}}</span>
     </p>
     <p>
       {{#if vocab.definition}}
-        Definition: {{limit vocab.definition 25}}
+        Definition:<span> {{limit vocab.definition 18}}
       {{else}}
         Not yet defined.
-      {{/if}}
+      {{/if}}</span>
     </p>
 
     <p>
       {{#if vocab.sentence}}
-        Sentence: {{limit vocab.sentence 25}}
+        Sentence:<span> {{limit vocab.sentence 18}}
       {{else}}
         Not yet defined.
-      {{/if}}
+      {{/if}}<span>
     </p>
     <button data-id="{{vocab.id}}" class="btn information-btn">More Info</button>
     <button data-id="{{vocab.id}}" class="btn delete-btn">Delete</button>

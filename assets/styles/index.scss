@@ -1,10 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
 
-
 * {
-  background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1513542789411-b6a5d4f31634%3Fixlib%3Drb-1.2.1%26q%3D80%26fm%3Djpg%26crop%3Dentropy%26cs%3Dtinysrgb%26w%3D1080%26fit%3Dmax);
   font-family: 'Comic Neue', cursive;
   text-align: center;
+}
+
+body {
+  background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1513542789411-b6a5d4f31634%3Fixlib%3Drb-1.2.1%26q%3D80%26fm%3Djpg%26crop%3Dentropy%26cs%3Dtinysrgb%26w%3D1080%26fit%3Dmax);
+}
+
+// .button {
+//   background-color: #4CAF50;
+//   border: none;
+//   color: white;
+//   padding: 15px 32px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 16px;
+//   margin: 4px 2px;
+//   cursor: pointer;
+// }
+
+.vocab-section {
+  display:inline-block;
+  margin: 50px;
+  padding: 15px;
+  border-style: dashed;
+  font-size: 20px;
+  text-align: left;
+  background-color: rgba(61, 235, 200, .8);
+}
+
+span {
+  color: #eb8b3d;
+  font-size: 24px;
+}
+
+.head {
+  font-size: 30px;
+  color: #823deb;
+  // text-align: center;
 }
 
 .navbar-brand {
@@ -17,17 +53,11 @@
   color: rbga(250, 190, 88, 1);
 }
 
-.signs {
-  border-style: solid;
-}
-
 .directions {
   height: 100px;
 }
 
 #content {
-  border-style: solid;
-  background-color: white;
   color: black;
   text-align: left;
 }
