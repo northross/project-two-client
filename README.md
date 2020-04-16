@@ -3,9 +3,11 @@ A single-page resource that allows students to build a relationship with their v
 
 ### Website:
 [Front End Repository](https://github.com/northross/project-two-client)
+
 [Front End Link](https://northross.github.io/project-two-client/)
 
 [Back End Repository](https://github.com/northross/project-two)
+
 [Back End Link](https://northrossproduction.herokuapp.com/)
 
 #### List of Technologies Used:
@@ -43,19 +45,33 @@ With a teacher feature, teachers could log in and see their student's work and p
 
 #### Wireframes & User Stories: [Link to wireframes and user stories]
 [ERD](https://imgur.com/O2nPDnC)
+
 [Wireframe - Sign Up/In](https://imgur.com/zRLFnko)
+
 [Wireframe - Home page](https://imgur.com/MSgLvS2)
+
 [Wireframe - View All](https://imgur.com/WSLsJ0e)
+
 [Wireframe - View One](https://imgur.com/21sV2aM)
+
 [Wireframe - Create/Update](https://imgur.com/g0RRnIO)
 
 User Stories:
+
 As a user, I want to create an account.
+
 As a user, I want to use account credentials to sign-in.
+
 As a user, I want to change password.
+
 As a user, I want to create a new word.
+
 As a user, I want to update the word values.
+
 As a user, I want to view all of my words.
+
 As a user, I want to view one specific word's features.
+
 As a user, I want to remove word from my word bank.
+
 As a user, I want to sign out.
