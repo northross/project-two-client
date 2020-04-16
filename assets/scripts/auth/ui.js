@@ -133,7 +133,7 @@ const getWordSuccess = function(info) {
 }
 
 const getWordFailure = function() {
-  $('#note').text('Woops... There was an error with retreiving your word')
+  $('#note').text('Woops... There was an error with retrieving your word')
 }
 
 const onSetUpdateSuccess = function(data) {
@@ -156,7 +156,7 @@ const onSetUpdateFailure = function(error) {
 }
 
 const onUpdateSubmitSuccess = function() {
-  $('#note').text('You have updated your word! Click "View All Words" to see!')
+  $('#note').text('You have updated your word! Click "View All Words" to see your changes!')
   $('form input[type="text"]').val('')
   $('.update-word-div').hide()
   $('.directions').show()

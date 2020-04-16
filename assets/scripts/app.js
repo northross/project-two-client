@@ -12,7 +12,7 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
 
   // user buttons display
   $('#sign-up').show()
@@ -22,9 +22,9 @@ $(() => {
 
   // vocab events
   vocabEvents.addHandlers()
-  $('#new-word').on('submit', authEvents.onNewWord)
+  $('#new-word').on('click', authEvents.onNewWord)
   $('#create-word').on('submit', authEvents.onCreateWord)
-  $('#show-all').on('submit', authEvents.onShowAll)
+  $('#show-all').on('click', authEvents.onShowAll)
   $('#update-form').on('submit', authEvents.onUpdateSubmit)
 
 

@@ -111,9 +111,9 @@ const onSetUpdate = function(event) {
 
 const addHandlers = () => {
   $('#show-all').on('click', onShowAll)
-  $('.content').on('click', '.information-btn', onShowOne)
-  $('#content').on('click', '.delete-btn', onDeleteWord)
-  $('.content').on('click', '.btn-secondary', onSetUpdate)
+  $('.content').on('click', '.btn-info', onShowOne)
+  $('#content').on('click', '.btn-danger', onDeleteWord)
+  $('.content').on('click', '.btn-success', onSetUpdate)
 }
 
 module.exports = {
