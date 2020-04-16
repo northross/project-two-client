@@ -2,13 +2,18 @@
 A single-page resource that allows students to build a relationship with their vocabulary words. Over the course of their progress in learning their vocabulary words, students can build a word using a template. The template can be updated over the course of their understanding of the word, refer to the word for studying purposes, and remove the word when they are ready to move onto new words.
 
 ### Website:
-[Front End Repository](https://github.com/northross/project-two-client)
 
-[Front End Link](https://northross.github.io/project-two-client/)
+[Front End Repository]
+(https://github.com/northross/project-two-client)
 
-[Back End Repository](https://github.com/northross/project-two)
+[Front End Link]
+(https://northross.github.io/project-two-client/)
 
-[Back End Link](https://northrossproduction.herokuapp.com/)
+[Back End Repository]
+(https://github.com/northross/project-two)
+
+[Back End Link]
+(https://northrossproduction.herokuapp.com/)
 
 #### List of Technologies Used:
 1. html
@@ -44,17 +49,24 @@ A great feature for a future add-on, would be a teacher feature.
 With a teacher feature, teachers could log in and see their student's work and possibly comment.
 
 #### Wireframes & User Stories: [Link to wireframes and user stories]
-[ERD](https://imgur.com/O2nPDnC)
+[ERD]
+(https://imgur.com/O2nPDnC)
 
-[Wireframe - Sign Up/In](https://imgur.com/zRLFnko)
+[Wireframe - Sign Up/In]
+(https://imgur.com/zRLFnko)
 
-[Wireframe - Home page](https://imgur.com/MSgLvS2)
+[Wireframe - Home page]
+(https://imgur.com/MSgLvS2)
 
-[Wireframe - View All](https://imgur.com/WSLsJ0e)
+[Wireframe - View All]
+(https://imgur.com/WSLsJ0e)
 
-[Wireframe - View One](https://imgur.com/21sV2aM)
+[Wireframe - View One]
+(https://imgur.com/21sV2aM)
 
-[Wireframe - Create/Update](https://imgur.com/g0RRnIO)
+[Wireframe - Create/Update]
+(https://imgur.com/g0RRnIO)
+
 
 User Stories:
 
