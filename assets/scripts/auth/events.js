@@ -52,7 +52,7 @@ const onNewWord = function(event) {
   $('.directions').hide()
   $('#content').hide()
   $('.update-word-div').hide()
-  $('#note').text("Let's build a new word!")
+  $('#note').text("Let's create a new word!")
 }
 
 // This allows the for submitting create word form
