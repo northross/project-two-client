@@ -10,32 +10,25 @@ body {
   background-size: cover;
 }
 
-// .button {
-//   background-color: #4CAF50;
-//   border: none;
-//   color: white;
-//   padding: 15px 32px;
-//   text-align: center;
-//   text-decoration: none;
-//   display: inline-block;
-//   font-size: 16px;
-//   margin: 4px 2px;
-//   cursor: pointer;
-// }
 
 .vocab-section {
   display:inline-block;
+  justify-content: center;
   margin: 40px;
   padding: 20px;
   border-style: dashed;
   font-size: 20px;
-  text-align: left;
-  background-color: rgba(61, 235, 200, .8);
+  text-align: center;
+  background-color: rgba(253, 227, 148, .9);
 }
 
 span {
   color: #eb8b3d;
   font-size: 24px;
+}
+
+.handle-btn {
+  justify-content: center;
 }
 
 .head {
@@ -81,10 +74,12 @@ span {
   display: inline-block;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  background-color: #FFCC00;
+  padding: 30px;
+  background-color: rgba(253, 227, 148, .9);
   border: 2px dotted #823deb;
   border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 #update-word {
@@ -93,14 +88,25 @@ span {
   justify-content: center;
   align-items: center;
   padding: 30px;
-  background-color: #FFCC00;
+  background-color: rgba(253, 227, 148, .9);
   border: 2px dotted #823deb;
   border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .signbox {
   text-align: center;
   justify-content: center;
+}
+
+.form-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.submit {
+  margin-top: 10px;
 }
 
 header {
