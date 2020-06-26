@@ -17,6 +17,7 @@ body {
   margin: 40px;
   padding: 20px;
   border-style: dashed;
+  border-radius: 10px;
   font-size: 20px;
   text-align: center;
   background-color: rgba(253, 227, 148, .9);
@@ -29,6 +30,7 @@ span {
 
 .handle-btn {
   justify-content: center;
+  text-align: center;
 }
 
 .head {
@@ -107,6 +109,7 @@ span {
 
 .form-background {
   background-color: rgba(253,227,148,.8);
+  border: 2px dashed black;
 }
 
 .submit {
