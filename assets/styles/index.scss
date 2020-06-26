@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1513542789411-b6a5d4f31634%3Fixlib%3Drb-1.2.1%26q%3D80%26fm%3Djpg%26crop%3Dentropy%26cs%3Dtinysrgb%26w%3D1080%26fit%3Dmax);
+  background-image: url("./assets/crayons.jpeg");
   background-size: cover;
 }
 
@@ -72,6 +72,10 @@ span {
   margin: 40px;
 }
 
+.button-row {
+  margin-bottom: 20px;
+}
+
 #create-word {
   text-align: center;
   display: inline-block;
@@ -92,4 +96,13 @@ span {
   background-color: #FFCC00;
   border: 2px dotted #823deb;
   border-radius: 15px;
+}
+
+.signbox {
+  text-align: center;
+  justify-content: center;
+}
+
+header {
+  background: linear-gradient(90deg, rgba(254,201,76,1) 25%, rgba(253,227,148,1) 50%, rgba(254,201,76,1) 75%);
 }

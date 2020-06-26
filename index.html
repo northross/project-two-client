@@ -22,15 +22,14 @@
         </div>
       </div>
     </nav> -->
-
-  <p class="page-header">inVOC<small>...a learning application</small></p>
-
-  <hr>
-
+  <header>
+    <p class="page-header">inVOC<small>...a learning application</small></p>
+  </header>
+  
+  <main>
   <p id='note'></p>
-
   <div class="container">
-    <div class="row">
+    <div class="row button-row">
 
       <div class="col">
         <button id="new-word" class="btn btn-success">Create New Word
@@ -79,20 +78,7 @@
       </div>
     </div>
   </div>
-  <!--
-  <div class="container">
-    <form id="create-word" class="border">
-      <fieldset>
-        <input class="create-form" type="text" name="vocab[word]" placeholder="enter a word">
-        <input class="create-form" type="text" name="vocab[definition]" placeholder="define the word">
-        <input class="create-form" type="text" name="vocab[sounds_like]" placeholder="the word sound like...">
-        <input class="create-form" type="text" name="vocab[synonyms]" placeholder="enter similar words">
-        <input class="create-form" type="text" name="vocab[antonyms]" placeholder="enter opposite words">
-        <input class="create-form" type="text" name="vocab[sentence]" placeholder="use word in a sentence">
-        <input type="submit" value="Create a Word!">
-      </fieldset>
-    </form>
-  </div> -->
+
   <div class="create-word-div">
     <div id="create-word" class="col-sm-5">
       <div>
@@ -175,10 +161,9 @@
     the process!</p>
   </div>
 
-  <div>
-    <div id="signs" class="row container transbox">
-      <div class="col-sm-4">
-      </div>
+  <div class="container">
+    <div id="signs" class="row signbox">
+
       <div class="col-sm-3">
         <div>
           <form id="sign-in">
@@ -196,6 +181,7 @@
           </form>
         </div>
       </div>
+
       <div class="col-sm-3">
         <div id="sign-up">
           <form>
@@ -218,13 +204,11 @@
           </form>
         </div>
       </div>
-      <div class="col-sm-3">
-      </div>
+
     </div>
   </div>
   <div id="content" class="content transbox"></div>
-
+</main>
 </body>
 
 </html>
-<form>
