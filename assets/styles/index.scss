@@ -8,7 +8,6 @@
 body {
   background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1513542789411-b6a5d4f31634%3Fixlib%3Drb-1.2.1%26q%3D80%26fm%3Djpg%26crop%3Dentropy%26cs%3Dtinysrgb%26w%3D1080%26fit%3Dmax);
   background-size: cover;
-  background-position: center;
 }
 
 // .button {
@@ -26,8 +25,8 @@ body {
 
 .vocab-section {
   display:inline-block;
-  margin: 50px;
-  padding: 15px;
+  margin: 40px;
+  padding: 20px;
   border-style: dashed;
   font-size: 20px;
   text-align: left;
@@ -73,24 +72,24 @@ span {
   margin: 40px;
 }
 
-.create-word-div {
-  padding: 30px;
-  text-align: center;
-}
-
 #create-word {
   text-align: center;
   display: inline-block;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 40px;
+  background-color: #FFCC00;
+  border: 2px dotted #823deb;
+  border-radius: 15px;
 }
 
-.outer-div, .update-word-div {
-     padding: 30px;
-     text-align: center;
-}
-.inner-div, #update-word {
-     display: inline-block;
-     padding: 50px;
+#update-word {
+  text-align: center;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #FFCC00;
+  border: 2px dotted #823deb;
+  border-radius: 15px;
 }

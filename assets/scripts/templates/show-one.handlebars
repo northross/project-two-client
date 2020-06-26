@@ -1,46 +1,47 @@
 {{#with vocabs }}
-{{log book}}
-<section class="vocab-section">
-  <h3><span class="head">{{word}}</span></h3>
-  <p>
-    Definition:
-    <span>{{#if definition includeZero=true}}
-      {{definition}}
-    {{else}}
-      Not yet defined.
-    {{/if}} </span>
-  </p>
-  <p>
-    Sounds like:
-    <span>{{#if sounds_like includeZero=true}}
-      {{sounds_like}}
-    {{else}}
-      Not yet defined.
-    {{/if}}</span>
-  </p>
-  <p>
-    Synonyms:
-    <span>{{#if synonyms includeZero=true}}
-      {{synonyms}}
-    {{else}}
-      Not yet defined.
-    {{/if}}</span>
-  </p>
-  <p>
-    Antonyms:
-    <span>{{#if antonyms includeZero=true}}
-      {{antonyms}}
-    {{else}}
-      Not yet defined.
-    {{/if}}</span>
-  </p>
-  <p>
-    Sentence:
-    <span>{{#if sentence includeZero=true}}
-      {{sentence}}
-    {{else}}
-      Not yet defined.
-    {{/if}}</span>
-  </p>
-  <button data-id="{{id}}" class="btn btn-success">Update</button>
+  {{log book}}
+  <div class="vocab-section col-md-6">
+    <h3><span class="head">{{word}}</span></h3>
+    <p>
+      Definition:
+      <span>{{#if definition includeZero=true}}
+          {{definition}}
+        {{else}}
+          Not yet defined.
+        {{/if}} </span>
+    </p>
+    <p>
+      Sounds like:
+      <span>{{#if sounds_like includeZero=true}}
+          {{sounds_like}}
+        {{else}}
+          Not yet defined.
+        {{/if}}</span>
+    </p>
+    <p>
+      Synonyms:
+      <span>{{#if synonyms includeZero=true}}
+          {{synonyms}}
+        {{else}}
+          Not yet defined.
+        {{/if}}</span>
+    </p>
+    <p>
+      Antonyms:
+      <span>{{#if antonyms includeZero=true}}
+          {{antonyms}}
+        {{else}}
+          Not yet defined.
+        {{/if}}</span>
+    </p>
+    <p>
+      Sentence:
+      <span>{{#if sentence includeZero=true}}
+          {{sentence}}
+        {{else}}
+          Not yet defined.
+        {{/if}}</span>
+    </p>
+    <button data-id="{{id}}" class="btn btn-success update-success-button">Update</button>
+  </div>
 {{/with}}

@@ -1,6 +1,6 @@
 {{#each vocabs as |vocab|}}
   {{log vocab}}
-  <section data-id="{{vocab.id}}" class="vocab-section">
+  <div data-id="{{vocab.id}}" class="vocab-section col-sm-3">
     <h3>
       Word:
     <span class="head">{{limit vocab.word 14}}</span>
@@ -21,13 +21,13 @@
     </p>
 
     <p>
-      {{#if vocab.sentence}}
-        Sentence:<span> {{limit vocab.sentence 18}}
+      {{#if vocab.synonyms}}
+        Synonyms:<span> {{limit vocab.synonyms 18}}
       {{else}}
         Not yet defined.
       {{/if}}<span>
     </p>
     <button data-id="{{vocab.id}}" class="btn btn-info">More Info</button>
     <button data-id="{{vocab.id}}" class="btn btn-danger">Delete</button>
-  </section>
+  </div>
 {{/each}}
