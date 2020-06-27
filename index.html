@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>inVOC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" <img src="face.jpeg"</a>
+        </div>
+      </div>
+    </nav> -->
+  <header>
+    <p class="page-header">inVOC<small>...a learning application</small></p>
+  </header>
+
+  <main>
+
+    <div class="container">
+      <div class="row button-row">
+
+        <div class="col">
+          <button id="new-word" class="btn btn-success">Create New Word
+          </button>
+        </div>
+
+        <div class="col">
+          <button id="show-all" class="btn btn-primary">Show All Words</button>
+        </div>
+
+        <div class="col">
+          <button id="sign-out" class="btn btn-danger">Sign Out</button>
+        </div>
+
+        <div id="change-password" class="dropdown change-password col" style="display: none;">
+          <button class="btn btn-warning dropdown-toggle btn-margin" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Password</button>
+          <form id="change-password2" class="dropdown-menu p-4 form-background">
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="text" class="form-control" name="passwords[old]" placeholder="Old password">
+            </div>
+            <div class="form-group">
+              <label for="dropdownFormPassword">Password</label>
+              <input type="password" class="form-control" name="passwords[new]" placeholder="New password">
+            </div>
+            <button type="submit" class="btn btn-warning handle-button" value="Change Password">Change Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <p id='note'></p>
+
+    <div class="create-word-div">
+      <div id="create-word" class="col-sm-5">
+        <div>
+          <form class="create-update">
+
+            <div class="form-group">
+              <p class="form-title">Let's create a new word!</p>
+              <input type="text" class="form-control form-control-sm" name="vocab[word]" aria-describedby="emailHelp" placeholder="enter your word">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" name="vocab[definition]" placeholder="define your word">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" name="vocab[sounds_like]" placeholder="this word sounds like...">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" name="vocab[synonyms]" placeholder="enter synonyms">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" name="vocab[antonyms]" placeholder="enter antonyms">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" name="vocab[sentence]" placeholder="use the word in a sentence">
+            </div>
+
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="update-word-div">
+      <div id="update-word" class="col-sm-5">
+        <div>
+          <form id="update-form">
+
+            <div class="form-group">
+              <p class="form-title">Let's update your word!</p>
+              <input id="word" type="text" class="form-control form-control-sm" name="vocab[word]">
+            </div>
+
+            <div class="form-group">
+              <input id="definition" type="text" class="form-control form-control-sm" name="vocab[definition]">
+            </div>
+
+            <div class="form-group">
+              <input id="sounds_like" type="text" class="form-control form-control-sm" name="vocab[sounds_like]">
+            </div>
+
+            <div class="form-group">
+              <input id="synonyms" type="text" class="form-control form-control-sm" name="vocab[synonyms]">
+            </div>
+
+            <div class="form-group">
+              <input id="antonyms" type="text" class="form-control form-control-sm" name="vocab[antonyms]">
+            </div>
+
+            <div class="form-group">
+              <input id="sentence" type="text" class="form-control form-control-sm" name="vocab[sentence]">
+            </div>
+
+            <button type="submit" class="btn btn-success">Update</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="directions">
+      <strong>STORE</strong> information about words that you are learning.<br><strong>UPDATE</strong> that information over time.<br><del>REMOVE</del> when you are ready to move onto new words.<br><strong>RESTART</strong>
+      the process!</p>
+    </div>
+
+    <div class="container">
+      <div id="signs" class="row signbox">
+
+        <div class="col-sm-3">
+          <div>
+            <form id="sign-in">
+              <div class="form-group">
+                <p class="up-in">Sign-In!</p>
+                <input type="email" class="form-control form-control-sm" name="credentials[email]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control form-control-sm" name="credentials[password]" id="exampleInputPassword1" placeholder="Enter Password">
+              </div>
+
+              <button type="submit" class="sign-up btn btn-primary">Sign-In</button>
+
+            </form>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div id="sign-up">
+            <form>
+
+              <div class="form-group">
+                <p class="up-in">Sign-Up!</p>
+                <input type="email" class="form-control form-control-sm" name="credentials[email]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control form-control-sm" name="credentials[password]" id="exampleInputPassword1" placeholder="Enter Password">
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control form-control-sm" name="credentials[password_confirmation]" id="exampleInputPassword1" placeholder="Confirm Password">
+              </div>
+
+              <button type="submit" class="sign-up btn btn-danger">Sign-Up</button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="content" class="content transbox"></div>
+  </main>
+</body>
+
+</html>
